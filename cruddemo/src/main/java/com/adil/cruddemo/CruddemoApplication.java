@@ -19,7 +19,7 @@ public class CruddemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-//			createStudent(studentDAO);
+			createStudent(studentDAO);
 
 //			findStudent(studentDAO);
 
@@ -31,7 +31,7 @@ public class CruddemoApplication {
 
 //			deleteStudentById(studentDAO);
 			
-			deleteAllStudents(studentDAO);
+//			deleteAllStudents(studentDAO);
 		};
 	}
 
@@ -93,15 +93,20 @@ public class CruddemoApplication {
 	private void createStudent(StudentDAO studentDAO) {
 		// create the student object
 		System.out.println("Creating new student...");
-//		Student student = new Student("md", "alam", "md@alam.com");
-		Student student = new Student("Sohan", "Kumar", "kumar@sohan.com");
+		Student student1 = new Student("md", "alam", "md@alam.com");
+		Student student2 = new Student("Ram", "Kumar", "kumar@ram.com");
+		Student student3 = new Student("Sohan", "Kumar", "kumar@sohan.com");
+		Student student4 = new Student("Mohan", "Kumar", "kumar@mohan.com");
 
 		// save the student object
 		System.out.println("Saving the student...");
-		studentDAO.save(student);
+		studentDAO.save(student1);
+		studentDAO.save(student2);
+		studentDAO.save(student3);
+		studentDAO.save(student4);
 
 		// display id of the student
-		System.out.println("Saved student. Generated id: " + student.getId());
+		System.out.println("Saved student. Generated id: ");
 	}
 
 }
